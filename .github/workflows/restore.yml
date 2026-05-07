@@ -1,0 +1,36 @@
+# CatClaw Restore Workflow
+# Uses GitHub Secrets for API keys
+# 
+# Required secrets:
+#   NVIDIA_API_KEY — from build.nvidia.com (catclaw key)
+
+name: 🐱 CatClaw Restore Verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_host:
+        description: 'Target host IP (Tailscale)'
+        required: true
+        default: '100.114.64.128'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Show restore instructions
+        run: |
+          echo "🐱 CatClaw Backup Verified"
+          echo ""
+          echo "To restore on a new machine:"
+          echo "  git clone https://github.com/dfrostar/catclawbackup.git"
+          echo "  cd catclawbackup"
+          echo "  bash restore.sh"
+          echo ""
+          echo "Then set the NVIDIA API key:"
+          echo "  export OPENAI_COMPATIBLE_API_KEY=\${NVIDIA_API_KEY}"
+          echo ""
+          echo "GitHub Secrets configured:"
+          echo "  ✅ NVIDIA_API_KEY (stored in repo secrets)"

@@ -87,6 +87,7 @@ echo "    SurrealDB started on :8989"
 
 cd ~/.openclaw/workspace/open-notebook
 export PATH="$HOME/.local/bin:$PATH"
+# NVIDIA_API_KEY should be set from GitHub Secrets or manually
 OPENAI_COMPATIBLE_API_KEY=${OPENAI_COMPATIBLE_API_KEY:-"SET_ME"} \
 OPENAI_COMPATIBLE_BASE_URL=https://integrate.api.nvidia.com/v1 \
 nohup uv run python run_api.py > /tmp/open-notebook.log 2>&1 &
