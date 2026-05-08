@@ -48,3 +48,7 @@ bash restore.sh
 
 ## Last Updated
 2026-05-07 by CatClaw 🐱
+
+## Updated 2026-05-07
+- Added skills/cmmc-consultant/SKILL.md
+- Added docs/PRODUCT-OBJECTIVE.md (platform north star)
