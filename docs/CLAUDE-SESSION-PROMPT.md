@@ -134,17 +134,24 @@ For consultants managing multiple clients.
 
 **Data source:** `GET /api/clients` + `GET /api/assessments` aggregated.
 
-#### 7. Pen Test Import (Priority: Medium)
+#### 7. Security Finding Import (Priority: Medium)
 
-Upload vulnerability scan results → auto-map to practices.
+Import vulnerability findings from multiple sources → auto-map to practices.
+
+**Sources supported:**
+- **Pen test reports** — Upload JSON/CSV/paste findings from any pen test vendor
+- **Mythos scans** — Automated code vulnerability discovery ($0.30–$1.50/scan). For software contractors, Mythos scans their repos and produces CWE-tagged findings.
+- **Decepticon findings** — Red team engagement results with CWE/MITRE tags
+- **Config scanner** — Upload Dockerfile, nginx.conf, K8s manifests → scan for CMMC violations
 
 **Flow:**
-1. Consultant uploads pen test report (JSON, CSV, or paste findings)
-2. System maps CWE/MITRE IDs to CMMC practices
-3. Shows affected practices with impact
-4. Consultant can add to assessment as findings
+1. Consultant selects source type (upload/Mythos/Decepticon/config)
+2. System processes findings into standardized format
+3. Maps CWE/MITRE IDs to CMMC practices via integration module
+4. Shows affected practices with severity, impact, and remediation
+5. Consultant adds findings to the assessment
 
-**Data source:** `POST /api/integrations/scan`
+**Data sources:** `POST /api/integrations/scan`, `POST /api/integrations/config-scan`
 
 ---
 
@@ -166,6 +173,29 @@ Upload vulnerability scan results → auto-map to practices.
 
 ---
 
+## Competitive Advantages (Build These to Win)
+
+Our competitors (Drata, Vanta, FutureFeed, Totem) charge $10K–25K/yr and are multi-framework bloatware. We win by being CMMC-specific and 10x cheaper.
+
+**What we have that they don't:**
+- CWE/MITRE → CMMC auto-mapping (pen test results → compliance impact in seconds)
+- Config scanner (Docker/nginx/K8s → CMMC violations)
+- Mythos code scanning integration (automated vuln discovery for software contractors)
+- AI practice guidance in plain English (not generic GRC boilerplate)
+- $99/mo starting price vs their $10K+/yr
+
+**What we need to build to stay ahead:**
+1. **Policy templates** — Pre-built, CMMC-specific policies the consultant can customize. Competitors have 50+. We need at least the top 10 (Access Control, IR, Training, Media Protection, etc.)
+2. **SSP auto-generation** — The #1 deliverable consultants produce. If we generate it from assessment data, consultants save 20+ hours per client.
+3. **Evidence-to-practice auto-linking** — Upload evidence → system suggests which practice it supports based on content analysis.
+4. **Continuous monitoring** — After assessment, monitor for drift (MFA disabled, new users, config changes). Alert the consultant. This is what Drata does well.
+5. **SPRS score calculator** — Auto-calculate from assessment data, show projection before submission.
+
+**Do NOT build:**
+- Multi-framework support (SOC 2, ISO 27001, HIPAA) — stay focused on CMMC
+- Enterprise features (SSO, SCIM, audit logs) — that's for later tiers
+- Mobile app — consultants use laptops
+
 ## Current Issues
 
 - The frontend needs the assessment walkthrough UI — this is the #1 priority
@@ -182,4 +212,9 @@ Build the features listed above, starting with the highest priority items. The b
 
 If you need a new backend endpoint, create it. If an existing endpoint doesn't return the right data shape, update it. But don't break existing functionality.
 
-Start by reading the two key documents, then pick the highest-priority feature that's missing and build it.
+Start by reading the three key documents, then pick the highest-priority feature that's missing and build it.
+
+### Key Documents to Read First
+1. `docs/PRODUCT-OBJECTIVE.md` — What we're building and for whom
+2. `docs/consultant-workflow.md` — The 5-phase consultant workflow
+3. `docs/COMPETITIVE-LANDSCAPE.md` — Who we're competing against, what they have, what we need to build to win
