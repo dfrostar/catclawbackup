@@ -218,3 +218,4 @@ Start by reading the three key documents, then pick the highest-priority feature
 1. `docs/PRODUCT-OBJECTIVE.md` — What we're building and for whom
 2. `docs/consultant-workflow.md` — The 5-phase consultant workflow
 3. `docs/COMPETITIVE-LANDSCAPE.md` — Who we're competing against, what they have, what we need to build to win
+4. `docs/SEO-STRATEGY.md` — SEO strategy: keywords, content plan, technical SEO, backlinks

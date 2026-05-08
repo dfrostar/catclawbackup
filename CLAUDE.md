@@ -8,6 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `docs/PRODUCT-OBJECTIVE.md` — The north star. Who, what, why, and what to build next.
 - `docs/consultant-workflow.md` — The complete 5-phase CMMC consultant workflow.
 - `docs/COMPETITIVE-LANDSCAPE.md` — Competitor analysis. Know who we're up against and what we must build to win.
+- `docs/SEO-STRATEGY.md` — SEO strategy: keywords, content plan, technical SEO, backlinks.
 
 ## Product
 
